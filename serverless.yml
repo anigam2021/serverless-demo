@@ -12,13 +12,6 @@ functions:
       - http: ANY /
       - http: 'ANY {proxy+}'
           
-plugins:
-  - serverless-offline
-
-# serverless.yml
-
-service: my-express-application
-
 custom:
   tableName: 'users-table-${self:provider.stage}'
 
@@ -65,3 +58,5 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:custom.tableName}
+plugins:
+  - serverless-offline
